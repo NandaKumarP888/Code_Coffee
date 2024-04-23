@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<html xmlns:th="https://www.thymeleaf.org/">
+	<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<title>WELCOME</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+	<style>
+	.container{
+	
+	width: 500px;
+	
+	position:relative;
+	top:50px;
+	}
+	
+	</style>
+
+</head>
+<body>
+<div class="container">
+		<div class="card">
+
+			<div class="card-header bg-secondary text-white text-center">
+				<h3>SPECIALIZATION </h3>
+			</div>
+
+			<div class="card-body bg-light text-dark">
+				<form th:action="@{/hospital/save}" method="POST">
+					CODE : <input type="text" name="code" class="form-control"/>
+					NAME : <input type="text" name="name" class="form-control"/>
+					NOTE : <textarea type="text" name="note" class="form-control"></textarea><br>
+					<button type="submit" class="btn btn-info">CREATE</button>
+					<a th:href="@{/hospital/all}" class="btn btn-success">ALL</a>
+					
+				</form>
+			</div>
+			<!--Card body end-->
+			<div class="card-footer bg-success text-light" th:if="${message!=null}">
+				[[${message}]]
+			</div>
+			<!--Card footer end-->
+		</div>
+		<!--Card end-->
+	</div>
+	<!--container end-->
+
+
+
+</body>
+</html>

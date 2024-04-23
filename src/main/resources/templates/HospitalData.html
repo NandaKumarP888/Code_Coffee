@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1">
+<title>WELCOME</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+	<div class="container"> 
+		<div class="card">
+			<div class="card-header bg-primary text-white text-center">
+				<h3>WELCOME TO HOSPITAL DATA PAGE </h3>
+			</div>
+
+			<div class="card-body">
+				<a th:href="@{/hospital/form}" class="btn btn-success"><< REGISTER</a>
+				<table class="table table-hover">
+					<tr class="bg-info text-white">
+						<th>CODE</th>
+						<th>NAME</th>
+						<th>NOTE</th>
+						<th>      Update  </th>
+						<th>  </th>
+					</tr>
+					<tr th:each="ob:${list}">
+						<td>[[${ob.code}]]</td>
+						<td>[[${ob.name}]]</td>
+						<td>[[${ob.note}]]</td>
+					
+						<td>
+							<a th:href="@{/hospital/delete(code=${ob.code})}" class="btn btn-danger">DELETE</a> |
+							<a th:href="@{/hospital/edit(code=${ob.code})}" class="btn btn-secondary">EDIT</a>
+						</td>
+					</tr>
+
+				</table>
+			</div>
+			<!--Card body end-->
+	
+			<div class="card-footer bg-info text-white" th:if="${message!=null}">
+				[[${message}]]
+			</div>
+			<!--Card footer end-->
+
+		</div>
+		<!--card end-->
+	</div>
+	<!--contaner end-->
+</body>
+</html>
